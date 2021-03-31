@@ -22,7 +22,7 @@ func Test() {
 func CreateRepo() error {
 	ctx := context.Background()
 	ts := oauth2.StaticTokenSource(
-		&oauth2.Token{AccessToken: ""},
+		&oauth2.Token{AccessToken: "3529786de91f272d2e56686f0b84a4c080c8b790"},
 	)
 	tc := oauth2.NewClient(ctx, ts)
 

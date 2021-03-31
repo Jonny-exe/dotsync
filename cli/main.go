@@ -5,7 +5,7 @@ import (
 	"errors"
 	"flag"
 	"github.com/Jonny-exe/dotsync-cli/gh"
-	"github.com/Jonny-exe/dotsync-cli/git"
+	// "github.com/Jonny-exe/dotsync-cli/git"
 	log "github.com/sirupsen/logrus"
 	"os"
 	"os/exec"
