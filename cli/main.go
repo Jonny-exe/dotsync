@@ -4,8 +4,9 @@ import (
 	"bufio"
 	"errors"
 	"flag"
+	"github.com/Jonny-exe/dotsync-cli/conf"
 	"github.com/Jonny-exe/dotsync-cli/gh"
-	// "github.com/Jonny-exe/dotsync-cli/git"
+	"github.com/Jonny-exe/dotsync-cli/git"
 	log "github.com/sirupsen/logrus"
 	"os"
 	"os/exec"
@@ -33,6 +34,12 @@ func initialize() {
 
 	err = gh.CreateRepo()
 	if err != nil {
+		log.Error(err)
+	}
+
+	err = git.Clone()
+	if err != nil {
+		log.Error("Error cloning repo: ")
 		log.Error(err)
 	}
 
@@ -127,5 +134,8 @@ func main() {
 	}
 
 	// gh.Test()
+	git.Test()
 	log.Info("Hello, this is dotsync")
+	log.Info("Your configuration is:")
+	log.Info(conf.Conf)
 }

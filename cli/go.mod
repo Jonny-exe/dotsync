@@ -9,4 +9,5 @@ require (
 	github.com/google/go-github/v34 v34.0.0
 	github.com/sirupsen/logrus v1.8.1
 	golang.org/x/oauth2 v0.0.0-20180821212333-d2e6202438be
+	gopkg.in/yaml.v2 v2.3.0
 )
