@@ -1,7 +1,7 @@
 package conf
 
 import (
-	. "github.com/WAY29/icecream-go/icecream"
+	// . "github.com/WAY29/icecream-go/icecream"
 	log "github.com/sirupsen/logrus"
 	"gopkg.in/yaml.v2"
 	"io/ioutil"
@@ -10,6 +10,7 @@ import (
 type conf struct {
 	AccessToken string `yaml:"gh-access-token"`
 	GhUsername  string `yaml:"gh-username"`
+	GhPassword  string `yaml:"gh-password"`
 }
 
 func getConf() conf {

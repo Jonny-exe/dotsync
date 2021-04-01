@@ -30,8 +30,9 @@ func CreateRepo() error {
 	client := github.NewClient(tc)
 
 	repo := &github.Repository{
-		Name:    github.String("dotsync-files"),
-		Private: github.Bool(true),
+		Name:     github.String("dotsync-files"),
+		Private:  github.Bool(true),
+		AutoInit: github.Bool(true),
 	}
 	_, _, err := client.Repositories.Create(ctx, "", repo)
 	if err != nil {

@@ -37,7 +37,7 @@ func initialize() {
 		log.Error(err)
 	}
 
-	err = git.Clone()
+	_, err = git.Clone()
 	if err != nil {
 		log.Error("Error cloning repo: ")
 		log.Error(err)
@@ -119,10 +119,12 @@ func main() {
 	// Arguments
 	var init bool
 	var sync bool
+	var config bool
 
 	// flag.StringVar(&uname, "u", "root", "Specify username. Default is root")
 	flag.BoolVar(&init, "init", false, "Init dotsync")
 	flag.BoolVar(&sync, "sync", false, "Sync dotfiles")
+	flag.BoolVar(&config, "config", false, "See your config")
 
 	flag.Parse()
 	if init == true {
@@ -133,9 +135,10 @@ func main() {
 		syncDotfiles()
 	}
 
+	if config == true {
+		log.Info(conf.Conf)
+	}
+
 	// gh.Test()
 	git.Test()
-	log.Info("Hello, this is dotsync")
-	log.Info("Your configuration is:")
-	log.Info(conf.Conf)
 }
