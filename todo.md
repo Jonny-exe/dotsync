@@ -1,6 +1,5 @@
 # Cli
- - [ ] ln -s
- - [ ] cronjob
+ - [x] cronjob
  - [x] git push
  - [x] check for only differences
  - [ ] maybe zip
