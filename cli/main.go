@@ -67,6 +67,10 @@ func syncDotfiles() {
 		log.Error(err)
 	}
 
+	err = git.Update()
+	if err != nil {
+		log.Error(err)
+	}
 }
 
 func syncCommand(fileExceptions string) error {
@@ -138,7 +142,4 @@ func main() {
 	if config == true {
 		log.Info(conf.Conf)
 	}
-
-	// gh.Test()
-	git.Test()
 }

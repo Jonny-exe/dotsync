@@ -10,7 +10,6 @@ import (
 type conf struct {
 	AccessToken string `yaml:"gh-access-token"`
 	GhUsername  string `yaml:"gh-username"`
-	GhPassword  string `yaml:"gh-password"`
 }
 
 func getConf() conf {

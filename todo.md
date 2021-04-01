@@ -1,11 +1,10 @@
 # Cli
  - [ ] ln -s
  - [ ] cronjob
- - [ ] gh push
+ - [x] git push
  - [x] check for only differences
  - [ ] maybe zip
  - [ ] option for extra files
- - [ ]
  - [ ] make systemd file to run on start and shutdown
 
 # Coding-Cli

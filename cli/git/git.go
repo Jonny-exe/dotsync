@@ -4,7 +4,7 @@ import (
 	// "errors"
 	//"io/ioutil"
 	"github.com/Jonny-exe/dotsync-cli/conf"
-	// . "github.com/WAY29/icecream-go/icecream"
+	. "github.com/WAY29/icecream-go/icecream"
 	"github.com/go-git/go-git/v5"
 	"github.com/go-git/go-git/v5/plumbing/transport/http"
 	log "github.com/sirupsen/logrus"
@@ -13,9 +13,34 @@ import (
 )
 
 var auth = &http.TokenAuth{Token: conf.Conf.AccessToken}
+var repo *git.Repository
+var worktree *git.Worktree
 
-// Open opens a local git repo
-func Open() (*git.Repository, error) {
+func init() {
+	// You have to assign it first so you don't create a local repo variable
+	var err error
+	repo, err = Clone()
+	if err != nil {
+		// Not logging because normally the repo already exists
+		repo, err = open()
+		Ic("Repo")
+		Ic(repo)
+		if err != nil {
+			log.Error("Error opening:")
+			log.Error(err)
+			return
+		}
+	}
+	worktree, err = repo.Worktree()
+	if err != nil {
+		log.Error(err)
+	} else {
+		log.Info("Git status:")
+		log.Info(worktree.Status())
+	}
+}
+
+func open() (*git.Repository, error) {
 	repo, err := git.PlainOpen("/home/a/dotsync-files")
 	return repo, err
 }
@@ -33,12 +58,24 @@ func Clone() (*git.Repository, error) {
 	return repo, err
 }
 
-func pullAndPush(worktree *git.Worktree) error {
-	err := worktree.Pull(&git.PullOptions{})
-	return err
+// Update updates the repo by pulling, commiting and pushing
+func Update() error {
+	err := pull()
+
+	err = commit()
+	Ic("commit")
+	if err != nil {
+		return err
+	}
+
+	err = push()
+	if err != nil {
+		return err
+	}
+	return nil
 }
 
-func push(repo *git.Repository) error {
+func push() error {
 
 	err := repo.Push(&git.PushOptions{
 		RemoteName: "origin",
@@ -47,57 +84,18 @@ func push(repo *git.Repository) error {
 	return err
 }
 
-func commit(worktree *git.Worktree) error {
+func commit() error {
 	dt := time.Now()
-
-	log.Info(worktree.Status())
-
-	_, err := worktree.Commit("Update-"+string(dt.String()), &git.CommitOptions{All: true})
+	worktree.AddGlob("") // "" is everything. Ignored should go in .gitignore
+	commitOptions := &git.CommitOptions{All: true}
+	_, err := worktree.Commit("Update-"+string(dt.String()), commitOptions)
 	if err != nil {
 		return err
 	}
 	return nil
 }
 
-//Test ..
-func Test() {
-	repo, err := Clone()
-	if err != nil {
-		log.Error("Error cloning:")
-		log.Error(err)
-		repo, err = Open()
-		if err != nil {
-			log.Error("Error opening:")
-			log.Error(err)
-			return
-		}
-	}
-	worktree, err := repo.Worktree()
-	if err != nil {
-		log.Error(err)
-	}
-	_ = pullAndPush(worktree)
-	err = commit(worktree)
-	if err != nil {
-		log.Error(err)
-	}
-
-	err = push(repo)
-	if err != nil {
-		log.Error(err)
-	}
-
+func pull() error {
+	err := worktree.Pull(&git.PullOptions{})
+	return err
 }
-
-//func publicKeyFile(file string) ssh.AuthMethod {
-//buffer, err := ioutil.ReadFile(file)
-//if err != nil {
-//return nil
-//}
-
-//key, err := ssh.ParsePrivateKey(buffer)
-//if err != nil {
-//return nil
-//}
-//return ssh.PublicKeys(key)
-//}
