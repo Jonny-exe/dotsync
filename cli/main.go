@@ -7,10 +7,11 @@ import (
 	"github.com/Jonny-exe/dotsync-cli/conf"
 	"github.com/Jonny-exe/dotsync-cli/gh"
 	"github.com/Jonny-exe/dotsync-cli/git"
-	// . "github.com/WAY29/icecream-go/icecream"
+	. "github.com/WAY29/icecream-go/icecream"
 	log "github.com/sirupsen/logrus"
 	"os"
 	"os/exec"
+	"strings"
 )
 
 func executeCommand(command string, argument string) (string, error) {
@@ -50,7 +51,7 @@ func initialize() {
 
 func syncDotfiles() {
 	home := os.Getenv("HOME")
-	lines, err := linebyLineScan(home + "/test.txt")
+	lines, err := linebyLineScan(home + "/.dotsyncignore")
 	if err != nil {
 		log.Error(err)
 		return
@@ -76,6 +77,10 @@ func setUpCronjob() error {
 	cronjobs, err := executeCommand("crontab", "-l")
 	if err != nil {
 		return err
+	}
+
+	if strings.Contains(cronjobs, "0 * * * * dotsync -sync\n") {
+		return errors.New("Cronjob already exists")
 	}
 
 	file, err := os.Create("/tmp/dotsync-crontab")
@@ -178,6 +183,6 @@ func main() {
 	}
 
 	if config == true {
-		log.Info(conf.Conf)
+		Ic(conf.Conf)
 	}
 }

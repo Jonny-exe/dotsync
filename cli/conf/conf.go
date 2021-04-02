@@ -14,7 +14,8 @@ type conf struct {
 
 func getConf() conf {
 	var c conf
-	yamlFile, err := ioutil.ReadFile("/home/a/.dotsync.yaml")
+	home := os.Getenv("HOME")
+	yamlFile, err := ioutil.ReadFile(home + "/.dotsync.yaml")
 	if err != nil {
 		log.Error("Error reading config")
 	}

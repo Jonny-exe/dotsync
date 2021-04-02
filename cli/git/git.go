@@ -38,15 +38,15 @@ func Initialize() {
 }
 
 func open() (*git.Repository, error) {
-	repo, err := git.PlainOpen("/home/a/dotsync-files")
+	home := os.Getenv("HOME")
+	repo, err := git.PlainOpen(home + "/a/dotsync-files")
 	return repo, err
 }
 
 // Clone clones the github repo
 func Clone() (*git.Repository, error) {
-	// Info("git clone https://github.com/go-git/go-git")
-
-	repo, err := git.PlainClone("/home/a/dotsync-files", false, &git.CloneOptions{
+	home := os.Getenv("HOME")
+	repo, err := git.PlainClone(home+"/dotsync-files", false, &git.CloneOptions{
 		URL:      "git@github.com:" + conf.Conf.GhUsername + "/dotsync-files.git",
 		Progress: os.Stdout,
 		Auth:     auth,
