@@ -8,6 +8,7 @@
 
 # Coding-Cli
  - [ ] Make modules
+ - [ ] Check for duplicate before adding new cronjob
  - [ ]
 
 # Readme

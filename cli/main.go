@@ -110,7 +110,7 @@ func syncCommand(fileExceptions string) error {
 	}
 	log.Info("Files have been successfully copied from $HOME to dotsync-files")
 
-	command = "rsync -rvaL $HOME/dotsync-files" + fileExceptions + " $HOME/"
+	command = "rsync -rvaL $HOME/dotsync-files/" + fileExceptions + " $HOME/"
 	log.Info(command)
 	cmd = exec.Command("bash", "-c", command)
 	_, err = cmd.Output()
