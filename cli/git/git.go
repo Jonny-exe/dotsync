@@ -39,7 +39,7 @@ func Initialize() {
 
 func open() (*git.Repository, error) {
 	home := os.Getenv("HOME")
-	repo, err := git.PlainOpen(home + "/a/dotsync-files")
+	repo, err := git.PlainOpen(home + "/dotsync-files")
 	return repo, err
 }
 
