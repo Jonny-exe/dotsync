@@ -7,12 +7,8 @@ import { ViewContext } from '../contexts/Contexts';
 const ViewHandler: React.FC = () => {
   const { view } = useContext(ViewContext);
 
-  const style = {
-    color: 'white',
-  };
-
   return (
-    <div className="app" style={style}>
+    <div className="view-handler">
       {view !== 'config' ? (
         <>
           <Init />
@@ -20,8 +16,8 @@ const ViewHandler: React.FC = () => {
           <Config />
         </>
       ) : (
-        <Config />
-      )}
+          <Config />
+        )}
     </div>
   );
 };

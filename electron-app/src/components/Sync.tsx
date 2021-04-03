@@ -16,7 +16,7 @@ const Sync: React.FC = () => {
   };
 
   return (
-    <div className="syncWrapper baseComponent">
+    <div className="syncWrapper base-component">
       <button onClick={handleSync} type="button"> Sync </button>
     </div>
   );

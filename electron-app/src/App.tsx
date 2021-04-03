@@ -9,7 +9,9 @@ const Body = () => {
   const [view, setView] = useState('home');
   const [commandConsole, setCommandConsole] = useState<ConsoleLine[]>([]);
   return (
-    <div className="app" style={{ color: 'black' }}>
+    <div className="app">
+    <h1> Choose one </h1>
+
       <ConsoleContext.Provider value={{ commandConsole, setCommandConsole }}>
         <ViewContext.Provider value={{ view, setView }}>
           <ViewHandler />

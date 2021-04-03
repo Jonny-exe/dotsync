@@ -9,7 +9,7 @@ const Init: React.FC = () => {
   };
 
   return (
-    <div className="initWrapper baseComponent">
+    <div className="initWrapper base-component">
       <button onClick={handleInit} type="button">Init</button>
     </div>
   );

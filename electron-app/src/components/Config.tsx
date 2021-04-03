@@ -26,7 +26,7 @@ const Config: React.FC = () => {
           </button>
         </div>
       ) : (
-        <div className="configWrapper baseComponent">
+        <div className="configWrapper base-component">
           <button type="button" onClick={() => setView('config')}>
             Config
           </button>
