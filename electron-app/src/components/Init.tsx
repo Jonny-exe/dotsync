@@ -1,16 +1,10 @@
 import React from 'react';
-import { execute } from '../helpers/cli';
+import OptionButton from './OptionButton';
 
 const Init: React.FC = () => {
-  const handleInit = () => {
-    execute('dotsync-cli -init', (output, error, stderr) => {
-      console.log(output, error, stderr);
-    });
-  };
-
   return (
     <div className="initWrapper base-component">
-      <button onClick={handleInit} type="button">Init</button>
+      <OptionButton type="init" />
     </div>
   );
 };

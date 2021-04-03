@@ -1,5 +1,3 @@
-const electron = window.require('electron');
-
 const { exec } = require('child_process');
 
 export const execute = (
