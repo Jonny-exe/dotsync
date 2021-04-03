@@ -35,7 +35,6 @@ body {
 }
 
 /* Base elements */
-
 button {
   background-color: white;
   padding: 10px 20px;
@@ -79,13 +78,11 @@ a:hover {
 h1 {
   color: white;
   font-size: min(100px, 10vmax);
-
   font-weight: normal;
   text-shadow: 0px 6px 10px #0000008f;
 }
 
 /* END Base elements */
-
 .base-component {
   margin: 0% 7%;
   display: flex;
@@ -98,12 +95,30 @@ h1 {
 }
 
 .console-wrapper {
+  position: relative;
   background-color: white;
   height: 50%;
   width: 50%;
-  padding: 2%;
+  padding: 0.5% 2%;
   margin: 5%;
   margin-bottom: 10%;
   border-radius: 10px;
   overflow: auto;
+}
+
+.dev-mode-console-button {
+  background-color: #0267ff;
+  width: 5vh;
+  height: 5vh;
+  border-radius: 0.5vmax;
+  color: white;
+  padding: 1% 0;
+  margin: 2%;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.console-info {
+  grid-area: info;
 }
