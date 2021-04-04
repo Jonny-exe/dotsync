@@ -4,12 +4,18 @@ import { ConsoleContext } from '../contexts/Contexts';
 
 const Console: React.FC = () => {
   const { commandConsole } = useContext(ConsoleContext);
-  const [isDevMode, setIsDevMode] = useState(false)
+  const [isDevMode, setIsDevMode] = useState(false);
 
   return (
     <div className="console-wrapper">
       <div>
-        <button type="button" className="dev-mode-console-button" onClick={() => setIsDevMode(!isDevMode)}>{'<>'}</button>
+        <button
+          type="button"
+          className="dev-mode-console-button"
+          onClick={() => setIsDevMode(!isDevMode)}
+        >
+          {'<>'}
+        </button>
       </div>
       <div className="console-info">
         {commandConsole.map((line: ConsoleLine, i: number) => (

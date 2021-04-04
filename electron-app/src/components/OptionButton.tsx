@@ -12,7 +12,7 @@ const OptionButton: React.FC<Props> = ({ type }) => {
   const handleCli = () => {
     execute(`dotsync-cli -${type}`, (output, error, stderr) => {
       const currentDate = new Date();
-      const time =`${currentDate.getHours()}:${currentDate.getMinutes()}:${currentDate.getSeconds()}`;
+      const time = `${currentDate.getHours()}:${currentDate.getMinutes()}:${currentDate.getSeconds()}`;
       const consoleLine: ConsoleLine = {
         text: `${time}: ${type}`,
         failed: error !== null,

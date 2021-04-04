@@ -10,7 +10,10 @@ const Body = () => {
   const [commandConsole, setCommandConsole] = useState<ConsoleLine[]>([]);
   return (
     <div className="app">
-      <h1> Choose one </h1>
+      <h1 style={{ display: view === 'config' ? 'none' : 'inherit' }}>
+        {' '}
+        Choose one{' '}
+      </h1>
 
       <ConsoleContext.Provider value={{ commandConsole, setCommandConsole }}>
         <ViewContext.Provider value={{ view, setView }}>

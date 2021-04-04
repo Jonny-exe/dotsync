@@ -10,7 +10,7 @@
 # Coding-Cli
 
 - [ ] Make modules
-- [ ] Check for duplicate before adding new cronjob
+- [x] Check for duplicate before adding new cronjob
 - [ ]
 
 # Readme
