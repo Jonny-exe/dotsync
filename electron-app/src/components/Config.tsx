@@ -57,7 +57,7 @@ const Config: React.FC = () => {
                     type="button"
                     onClick={() => setView('home')}
                   >
-                    Home
+                    Back
                   </button>
                 </div>
               </>
