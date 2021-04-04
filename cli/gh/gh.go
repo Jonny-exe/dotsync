@@ -36,7 +36,7 @@ func CreateRepo() error {
 	}
 	_, _, err := client.Repositories.Create(ctx, "", repo)
 	if err != nil {
-		return errors.New("Error creating repo: dotsync-files repository already exists")
+		return errors.New("Error creating repo. This may only mean that dotsync-files repository already exists")
 	}
 	log.Info("Repo has been created successfully")
 	return nil
