@@ -33,6 +33,18 @@ jobs:
         with:
           version_file: ./VERSION
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          
+      - name: Set the current version env
+        id: step_one
+        run: |
+            echo -n "current_version=" >> $GITHUB_ENV
+            cat ./VERSION >> $GITHUB_ENV
+            cat $GITHUB_ENV
+            
+      - name: Use the env value
+        id: step_two
+        run: |
+            echo "${{ env.current_version }}" # This will output 'yellow'
 
       # Runs a set of commands using the runners shell
       - name: Run a multi-line script
@@ -45,6 +57,8 @@ jobs:
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
+          tag_name: v${{ env.current_version }}
+          release_name: Release ${{ env.current_version }}
           draft: false
           prerelease: false
       - name: Upload Release Asset
