@@ -26,6 +26,10 @@ Before you start using it make sure to create the config files.j
  - `-sync` to sync your files with the ones that are in the repo, and to update the repo.
  - `-config` to see your current config.
 
+## Gui
+
+Download it from the releases and use it. It is made to be intuitive so I don't think it needs more explanation.
+
 
 # Config files
 
