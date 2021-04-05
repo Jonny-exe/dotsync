@@ -6,7 +6,7 @@ It syncs your files by creating a private repo and pushing and pulling every 30 
 You can choose between the cli or the gui.
 Keep in mind that the gui needs the cli.
 
-# Instalation
+# Installation
 
 ## Cli
 
