@@ -11,10 +11,8 @@
 
 - [ ] Make modules
 - [x] Check for duplicate before adding new cronjob
-- [ ]
 
 # Readme
 
 - [ ] make example and defaults for yml file
 - [ ] show help for cli commands
-- [ ]

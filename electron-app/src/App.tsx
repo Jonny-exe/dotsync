@@ -8,11 +8,11 @@ import { ConsoleLine } from './helpers/types';
 const Body = () => {
   const [view, setView] = useState('home');
   const [commandConsole, setCommandConsole] = useState<ConsoleLine[]>([]);
+
   return (
     <div className="app">
       <h1 style={{ display: view === 'config' ? 'none' : 'inherit' }}>
-        {' '}
-        Choose one{' '}
+        Choose one
       </h1>
 
       <ConsoleContext.Provider value={{ commandConsole, setCommandConsole }}>
