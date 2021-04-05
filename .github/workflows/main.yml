@@ -24,7 +24,13 @@ jobs:
     steps:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
-      - uses: remorses/bump-version@js
+      
+      - name: Bump version
+        id: bump_version
+        uses: remorses/bump-version@js
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
         with:
           version_file: ./VERSION
           github_token: ${{ secrets.GITHUB_TOKEN }}
