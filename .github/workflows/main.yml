@@ -29,7 +29,6 @@ jobs:
         id: bump_version
         uses: remorses/bump-version@js
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
         with:
           version_file: ./VERSION
