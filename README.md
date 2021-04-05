@@ -1,4 +1,4 @@
-# DOTSYNC
+# Dotsync
 
 This is a tool designed to sync all your important dotfiles in your $HOME.
 It syncs your files by creating a private repo and pushing and pulling each 30 mins and every time you start or turn off your computer
