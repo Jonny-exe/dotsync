@@ -38,8 +38,7 @@ jobs:
         with:
           tag_prefix: v
           tag_name: ${{ github.ref }}
-          version: "${{ steps.previous_step.outputs.version }}"
-          release_name: Release ${{ github.ref }}
+          release_name: Release ${{ github.event.release.tag_name }}
           draft: false
           prerelease: false
       - name: Upload Release Asset
