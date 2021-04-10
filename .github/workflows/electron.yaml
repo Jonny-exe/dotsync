@@ -35,7 +35,7 @@ jobs:
             ${{ runner.os }}-yarn-
       - name: Install deps
         working-directory: electron-app
-        run: yarn
+        run: npm install
       - name: Compile Typescript
         working-directory: electron-app
         run: yarn compile
