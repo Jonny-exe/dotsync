@@ -34,9 +34,6 @@ jobs:
       - name: Install deps
         working-directory: electron-app
         run: yarn
-      - name: Save env vars
-        working-directory: electron-app/src
-        # run: echo "export const DISCORD_CLIENT_ID = '${{ secrets.DISCORD_CLIENT_ID }}'" >> constants.ts
       - name: Compile Typescript
         working-directory: electron-app
         run: yarn compile
