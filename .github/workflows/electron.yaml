@@ -38,7 +38,7 @@ jobs:
         working-directory: electron-app
         run: yarn compile
       - name: Build Globkey
-        working-directory: baklava
+        working-directory: electron-app
         run: yarn build:globkey
       - name: Prepare for app notarization
         if: startsWith(matrix.os, 'macos')
