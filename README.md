@@ -35,8 +35,9 @@ Download it from the releases and use it. It is made to be intuitive so I don't 
 
 # Config files
 
-There are two config files, both are located in $HOME/:
+There are three config files, both are located in $HOME/:
  - .dotsyncignore
+ - .dotsyncinclude
  - .dotsync.yaml
 
 ## .dotsyncignore
@@ -48,6 +49,17 @@ Works exactly like a `.gitignore`. Simply list all the dirs you'd like to ignore
 
 .ssh
 .npm
+```
+
+## .dotsyncinclude
+
+Works exactly like a `.gitignore`. Simply list all the dirs you'd like include which are in excluded directories. For example.
+
+```
+#.dotsyncinclude
+
+.ssh/key.pub
+.npm/something/hello.js
 ```
 
 ## .dotsync.yaml

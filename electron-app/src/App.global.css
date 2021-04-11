@@ -19,7 +19,6 @@ body {
   height: 100%;
   width: 100%;
 }
-
 .app {
   height: 100%;
   width: 100%;
@@ -79,19 +78,19 @@ a:hover {
 
 h1 {
   color: white;
-  font-size: min(100px, 10vmax);
+  font-size: #{'min(100px, 10vmax)'};
   font-weight: normal;
   text-shadow: 0px 6px 10px #0000008f;
 }
 
 h2 {
   font-weight: normal;
-  font-size: min(50px, 5vmax);
+  font-size: #{'min(50px, 5vmax)'};
 }
 
 h3 {
   font-weight: normal;
-  font-size: min(30px, 3vmax);
+  font-size: #{'min(30px, 3vmax)'};
 }
 
 input {
